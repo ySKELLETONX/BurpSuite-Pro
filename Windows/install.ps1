@@ -89,7 +89,7 @@ function Download-BurpSuite {
     New-Item -Path $burpDir -ItemType Directory -Force | Out-Null
     
     # Optimized download using Start-BitsTransfer
-    Start-BitsTransfer -Source $downloadLink -Destination "$burpDir\burpsuite_pro.jar"
+    Invoke-WebRequest -Uri $downloadLink -OutFile "$burpDir\burpsuite.zip"
     Print-Status "Downloaded Burp Suite Version: $version"
 }
 
